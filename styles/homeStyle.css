@@ -1,0 +1,36 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+.pageTitle{
+  margin-left: 40px; /* Position at the left */
+  margin-top: 15px;
+  line-height: 50px;
+}
+
+
+/*Dashboard table*/
+#dashboard_table{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80vh;
+  margin-top: 90px;
+  margin-left: 400px;
+  width: 90vh;
+}
+
+#dashboard_table table th {
+  align-items: left;
+}
+
+#dashboard_table table td {
+  border: 0;
+  padding: 10px;
+}
+
+#chart{
+  height: 250px;
+}

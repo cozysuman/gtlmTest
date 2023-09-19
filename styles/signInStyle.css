@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: antiquewhite;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .bg {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sign {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 80px 40px 40px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 52px 44px 59px -22px rgb(155, 146, 146);
+    color: black;
+  }
+  
+  .sign h1 {
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    color: #0056b3;
+  }
+  .sign .form-input {
+    position: relative;
+  }
+  .sign .form-input input {
+    width: 100%;
+    padding-top: 18px;
+    padding-bottom: 3px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    border: none;
+    border-bottom: 1px solid #080808;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+  }
+  
+  .sign .form-input label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 1.1rem;
+    color: #0056b3;
+    pointer-events: none;
+    transition: 0.3s ease-out;
+    transform: translateY(-19px);
+  }
+  .sign .form-input input:focus + label {
+    transform: translateY(-18px);
+    color: #0560a5;
+    font-size: 1rem;
+  }  
+  .button {
+    margin-top: 10px;
+    border: none;
+    color: white;
+    margin-left: 180px;
+    width: 40%;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    /* height: 40px; */
+    background: #007bff;
+  }
+  .button:hover {
+    cursor: pointer;
+    background: #0056b3
+  }
+  
+  /*logitech logo*/
+#logo{
+  position: absolute; /* Positioning type */
+  top: 40px; /* Position at the top */
+  left: 75px; /* Position at the left */
+  height: 20px;
+}
+  
