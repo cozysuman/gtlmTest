@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-
-    const addUserBtn = document.getElementById('addUserBtn');
+    const addUserBtn = document.getElementById('addUserButton');
     const userTable = document.getElementById('userTable');
     const editModal = document.getElementById('editModal');
     const deleteModal = document.getElementById('deleteModal');
@@ -11,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const saveNewUserBtn = document.getElementById('saveNewUserBtn');
     const cancelNewUserBtn = document.getElementById('cancelNewUserBtn');
     const cancelEditUserBtn = document.getElementById('cancelEditUserBtn');
+    const newUserForm = document.getElementById('newUserForm');
 
     //current index of user
     var index=0;
@@ -18,13 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
     addUserBtn.addEventListener('click', openAddModal);
 
     // Sample initial user data, make sure role case match the option value case under select
-    let users = [
-        { employeeID: '001', username: 'Sam', role: 'Developer' },
-        { employeeID: '002',username: 'Evelyn', role: 'Manager' },
-        { employeeID: '003',username: 'David', role: 'Admin' },
-        { employeeID: '004',username: 'User 4', role: 'Developer' },
-        { employeeID: '005',username: 'User 5', role: 'Developer' }
-    ];
+    // let users = [
+    //     { employeeID: '001', username: 'Sam', role: 'Developer' },
+    //     { employeeID: '002',username: 'Evelyn', role: 'Manager' },
+    //     { employeeID: '003',username: 'David', role: 'Admin' },
+    //     // { employeeID: '004',username: 'User 4', role: 'Developer' },
+    //     // { employeeID: '005',username: 'User 5', role: 'Developer' }
+    // ];
 
     //populate user table
     function populateTable() {
@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
             row.innerHTML = `
                 <td>${user.employeeID}</td>
                 <td>${user.username}</td>
-                <td>${user.role}</td>
+                <td>${user.jobRole}</td>
                 <td>
                     <button class="editBtn" data-index="${index}">Edit</button>
-                    <button class="deleteBtn" data-index="${index}">Delete</button>
+                    <button class="deleteBtn" data-index="${index}" data-employeeID="${user.employeeID}">Delete</button>
                 </td>
             `;
             userTable.appendChild(row);
@@ -70,32 +70,43 @@ document.addEventListener('DOMContentLoaded', function() {
     //make add user modal appear
     function openAddModal() {
         //reset values for username and role
-        document.getElementById('newEmployeeID').value="";
-        document.getElementById('newName').value="";
-        document.getElementById('newRole').value="";
+        // document.getElementById('newEmployeeID').value="";
+        // document.getElementById('firstName').value="";
+        // document.getElementById('lastName').value="";
+        // document.getElementById('username').value="";
+        // document.getElementById('password').value="";
+        // document.getElementById('dob').value="";
+        // document.getElementById('contact').value="";
+        // document.getElementById('email').value="";
+        // document.getElementById('newRole').value="";
         addModal.style.display = 'block';
+    }
+    function updateTable() {
+        // Reload the page to fetch the latest data from the server
+        location.reload();
     }
 
     //save new user function
     saveNewUserBtn.addEventListener('click', function() {
-        const newEmployeeID = document.getElementById('newEmployeeID').value;
-        const newName = document.getElementById('newName').value;
-        const newRole = document.getElementById('newRole').value;
+        // const newEmployeeID = document.getElementById('newEmployeeID').value;
+        // const newName = document.getElementById('newName').value;
+        // const newRole = document.getElementById('newRole').value;
 
-        //validations to check for empty values
-        if (newEmployeeID === "" || newEmployeeID === undefined || newEmployeeID === null) {
-            alert("Please fill in Employee Id.")
-        }else if (newName === "" || newName === undefined || newName === null) {
-            alert("Please fill in new username.")
-        }else if (newRole === "" || newRole === undefined || newRole === null) {
-            alert("Please fill in new role.")
-        }else{
-            users.push({ employeeID:newEmployeeID, username: newName, role: newRole });
-
+        // //validations to check for empty values
+        // if (newEmployeeID === "" || newEmployeeID === undefined || newEmployeeID === null) {
+        //     alert("Please fill in Employee Id.")
+        // }else if (newName === "" || newName === undefined || newName === null) {
+        //     alert("Please fill in new username.")
+        // }else if (newRole === "" || newRole === undefined || newRole === null) {
+        //     alert("Please fill in new role.")
+        // }else{
+        //     users.push({ employeeID:newEmployeeID, username: newName, role: newRole });
+        updateTable();
+        console.log("confirm");
             addModal.style.display = 'none';
-            populateTable();
-        }
- 
+        //     populateTable();
+        // }
+        
     });
 
     //cancel save new user

@@ -92,7 +92,7 @@ th {
     cursor: pointer;
 }
 
-#addUserBtn{
+#addUserButton{
   margin-left: 75%;
   background-color: #007bff;
   color: white;
@@ -101,7 +101,7 @@ th {
   border-radius: 4px;
   cursor: pointer;
 }
-#addUserBtn:hover{
+#addUserButton:hover{
   background-color: #0056b3;
 }
 
@@ -158,6 +158,10 @@ th {
 .modal-content h2 {
   margin-top: 0;
   color: #333;
+}
+.modal-content-scroll {
+  max-height: 400px; /* Adjust the max height as needed */
+  overflow-y: auto; /* Enable vertical scrollbar when content overflows */
 }
 
 /* Modal Form Styling */

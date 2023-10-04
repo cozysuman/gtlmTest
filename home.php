@@ -1,7 +1,4 @@
 
-
-<?php require_once "inc/menu.inc.php"; ?>
-
     <div class="pageTitle"><h2>Dashboard</h2></div>
     
     <div id="dashboard_table">

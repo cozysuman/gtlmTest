@@ -110,6 +110,7 @@ ul {
 /* ...........end profile card.................. */
 
 /*background of modal*/
+
 .modal {
   display: none;
   position: fixed;
@@ -122,7 +123,6 @@ ul {
   align-items: center;
   z-index: 1;
 }
-
 /*modal box*/
 .modal-content {
   background-color: #fff;
