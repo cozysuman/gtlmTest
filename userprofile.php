@@ -1,24 +1,9 @@
-
 <?php
-
 // Check if the user is logged in (user details should be stored in the session)
 if (isset($_SESSION['user_details'])) {
     // Retrieve user details from the session
     $userDetails = $_SESSION['user_details'];
   }
-
-    // You can now access user details like $userDetails['username'], $userDetails['jobRole'], etc.
-
-    // Display the user profile or perform actions based on the user details
-    // echo "Welcome, " . $userDetails['username'] . "! Your role is: " . $userDetails['jobRole'];
-    
-else {
-//     // Redirect to the login page if the user is not logged in
-//     header("Location: login.php");
-echo "<p class='error'>Invalid username or password.</p>";
-    exit;
-}
-
 // Check if the form was submitted (data was edited)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Retrieve edited data from the form
@@ -26,12 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $editedDOB = $_POST['DOB'];
   $editedContact = $_POST['contact'];
   $editedEmail = $_POST['email'];
-  $editedJobRole = $_POST['jobRole'];
-  
-
-// Example query to update email
-$sql = "UPDATE users SET username='$editedUername', dob='$editedDOB', contact='$editedContact', email = '$editedEmail', jobRole = '$editedJobRole' WHERE employeeID  = " . $userDetails['employeeID'];
-
+  // $editedJobRole = $_POST['jobRole'];
+$sql = "UPDATE users SET username='$editedUername', dob='$editedDOB', contact='$editedContact', email = '$editedEmail' WHERE employeeID  = " . $userDetails['employeeID'];
 if (mysqli_query($conn, $sql)) {
     // Update successful
     echo "Profile updated successfully!";
@@ -106,22 +87,23 @@ mysqli_close($conn);
       </div>
       <div class="form-group">
         <label for="DOB">Date of Birth:</label>
-        <input name="DOB" type="text" value="<?php echo  $userDetails['dob'] ?>"/>
+        <input name="DOB" type="date" value="<?php echo  $userDetails['dob'] ?>"/>
       </div>
       <div class="form-group">
         <label for="contact">Contact:</label>
-        <input name="contact" type="text" value="<?php echo  $userDetails['contact'] ?>"/>
+        <input name="contact" type="tel" value="<?php echo  $userDetails['contact'] ?>"/>
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
         <input name="email" type="email" value="<?php echo  $userDetails['email'] ?>"/>
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="jobRole">Job Role:</label>
         <input name="jobRole" type="text" value="<?php echo  $userDetails['jobRole'] ?>"/>
-      </div>
+      </div> -->
 
-      <button type="button" id="saveButton" class="edit-button">OK</button>
+      <button type="button" id="saveButton" class="edit-button">Save</button>
+      <button type="button" id="cancelButton" class="edit-button">Cancel</button>
 
       </form>
       </div>
